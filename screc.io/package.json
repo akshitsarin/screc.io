@@ -2,7 +2,7 @@
   "name": "screc.io",
   "productName": "screc.io",
   "version": "1.0.0",
-  "description": "My Electron application description",
+  "description": "screc.io is an Open-Source Screen-Recording app made in Electron, that works pretty much on all major operating systems like MacOS, Linux & Windows.",
   "main": "src/index.js",
   "scripts": {
     "start": "electron-forge start",
