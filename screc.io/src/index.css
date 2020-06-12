@@ -1,6 +1,44 @@
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-  margin: auto;
-  max-width: 38rem;
-  padding: 2rem;
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+	margin: 0;
+	/* max-width: 40rem; */
+	width: 100%;
+	padding: 2rem 4rem 2rem 4rem;
+	background-color: #171717;
+}
+
+/* disable selection */
+.disable-select{
+   user-select: none; /* Chrome and Opera */
+   -webkit-user-select: none; /* Safari */
+   -khtml-user-select: none; /* Konqueror HTML */
+}
+
+body::-webkit-scrollbar-track {
+  background: #171717; /* color of the tracking area */
+}
+
+video{
+	width : 80%;
+	height: auto;
+	padding-left: 1rem;
+	padding-right: 1rem;
+}
+
+.controls{
+	text-align: center;
+} 
+
+.example::-webkit-scrollbar {
+  display: none;
+}
+
+::-webkit-scrollbar {     
+	background-color: #171717;
+	width: .6em;
+}
+
+::-webkit-scrollbar-thumb:window-inactive,
+::-webkit-scrollbar-thumb {
+	background: #202020;
 }

@@ -10,16 +10,20 @@
     <script defer src = "render.js"></script>
   </head>
   
-  <body>
-    <h2 class="subtitle is-2">screc.io</h2>
-    <p>An Open-Source Screen Recording App made in Electron</p>
-    <hr>
-    <video style="justify-content: center;"></video>
+  <body class="disable-select">
+    <h2 class="subtitle is-size-2 has-text-weight-medium is-family-primary has-text-grey-lighter">screc.io</h2>
+    <p class="is-family-primary has-text-grey-lighter is-size-6">An Open-Source Screen-Recording app compatible for all major operating systems including MacOS, Linux & Windows.</p><br>
+    <!-- <hr> -->
     <br>
-    <button id="start" class="button is-info is-rounded">Start</button>
-    <button id="stop" class="button is-danger is-rounded">Stop</button>
-    <hr>
-    <button id="selectVideo" class="button is-dark is-rounded">Choose Source</button>
+    <div class="controls">
+      <video poster="source-not-selected-dark.png"></video><br><br>
+      <button id="start" class="button is-info">Start</button>
+      <button id="stop" class="button is-danger">Stop</button>
+      <!-- <hr> -->
+      <br><br>
+      <button id="selectVideo" class="button is-dark is-rounded is-small">Choose Source</button>
+    </div>
+    <br>
   </body>
   
 </html> 

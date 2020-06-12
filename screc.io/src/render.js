@@ -1,3 +1,6 @@
+const { webFrame } = require("electron");
+webFrame.setZoomFactor(1);
+
 // js document object model rules
 
 const start = document.getElementById("start");
@@ -29,7 +32,7 @@ async function getVideo(){
 }
 
 async function selectSource(source){
-	selectVideo.innerText = source.name;
+	selectVideo.innerText = "Displaying: " + source.name;
 	const constraints = {
 		audio: false,
 		video: {
