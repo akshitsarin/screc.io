@@ -3,25 +3,39 @@
   
   <head>
     <meta charset="UTF-8">
-    <title>screc.io</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
+    <title>screc.io - An Open Source Screen Recorder</title>
 
     <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+      integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap" rel="stylesheet">
+
     <script defer src = "render.js"></script>
   </head>
   
   <body class="disable-select">
-    <h2 class="subtitle is-size-2 has-text-weight-medium is-family-primary has-text-grey-lighter">screc.io</h2>
-    <p class="is-family-primary has-text-grey-lighter is-size-6">An Open-Source Screen-Recording app compatible for all major operating systems including MacOS, Linux & Windows.</p><br>
-    <!-- <hr> -->
-    <br>
+    <h1 id="heading"> screc.io </h1>
+    <hr>
+    <p id="description"> An Open-Source, Minimal, Easy-to-Use Screen Recording app compatible for all major operating systems including MacOS, Linux & Windows.</p><br>
+
     <div class="controls">
-      <video poster="source-not-selected-dark.png"></video><br><br>
-      <button id="start" class="button is-info">Start</button>
-      <button id="stop" class="button is-danger">Stop</button>
-      <!-- <hr> -->
+      <video poster="source-not-selected-dark.png"></video><br>
+
+      <hr>
+      <button id="start" class="btn">
+        Start
+      </button>
+
+      <button id="stop" class="btn btn-dark">
+        Stop
+      </button>
+
       <br><br>
-      <button id="selectVideo" class="button is-dark is-rounded is-small">Choose Source</button>
+
+      <button id="selectVideo" class="btn btn-lg">
+        Choose Source
+      </button>
+
     </div>
     <br>
   </body>

@@ -9,6 +9,7 @@ const createWindow = () => {
   const mainWindow = new BrowserWindow({
     width: 800,
     height: 630,
+    icon: __dirname + '/screc-io-circle.png',
     webPreferences:{
       nodeIntegration: true
     }
@@ -29,4 +30,4 @@ app.on('activate', () => {
   if (BrowserWindow.getAllWindows().length === 0) {
     createWindow();
   }
-}); 
+});

@@ -1,10 +1,11 @@
 body {
-	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 	margin: 0;
-	/* max-width: 40rem; */
-	width: 100%;
-	padding: 2rem 4rem 2rem 4rem;
-	background-color: #171717;
+	width: 100% !important;
+	padding: 2rem 4rem 1rem 4rem;
+	background-color: #171717 !important;
+	font-family: 'Quicksand', sans-serif !important;
+	color: white !important;
+	overflow-x: hidden !important;
 }
 
 /* disable selection */
@@ -18,11 +19,50 @@ body::-webkit-scrollbar-track {
   background: #171717; /* color of the tracking area */
 }
 
+#heading{
+	font-weight: 600 !important;
+	letter-spacing: 0.4px;
+}
+
+#description{
+	letter-spacing: 0.4px;
+}
+
 video{
 	width : 80%;
 	height: auto;
 	padding-left: 1rem;
 	padding-right: 1rem;
+}
+
+#start{
+	background-color: #206a5d;
+	color: white;
+}
+
+#start:hover{
+	background-color: #185247;
+	color: white;
+}
+
+/* #start, #start:focus, #start.active:focus, #start:active:focus{
+	border: none !important;
+	outline:none !important;
+} */
+
+#stop{
+	margin-left: 0.8em;
+	color: white;
+}
+
+#selectVideo{
+	background-color: #A93343;
+	color: white;
+}
+	
+#selectVideo:hover{
+	background-color: #912d3b;
+	color: white;
 }
 
 .controls{
