@@ -1,16 +1,30 @@
-const { webFrame, dialog } = require("electron");
+const { webFrame, desktopCapturer, remote } = require("electron");
 webFrame.setZoomFactor(1);
 
+const { dialog, Menu } = remote;
+const { writeFile } = require('fs');
 // js document object model rules
 
-const start = document.getElementById("start");
-const stop = document.getElementById("stop");
-const selectVideo = document.getElementById("selectVideo");
+let mediaRecorder;
+const recordedBits = []; // ability to record video in segments
+const vid = document.querySelector('video');
 
-const vid = document.querySelector("video")
-const { desktopCapturer, remote } = require('electron');
-const { Menu } = remote;
-const { writeFile } = require('fs');
+const start = document.getElementById('start');
+start.onclick = x => {
+	mediaRecorder.start();
+	start.classList.add('btn-danger');
+	start.innerText = "Recording";
+};
+
+const stop = document.getElementById("stop");
+stop.onclick = x => {
+	mediaRecorder.stop();
+	start.classList.remove('btn-danger');
+	start.innerText = "Start";
+};
+
+const selectVideo = document.getElementById("selectVideo");
+selectVideo.onclick = getVideo;
 
 async function getVideo(){
 	const input = await desktopCapturer.getSources({
@@ -32,9 +46,6 @@ async function getVideo(){
 	optionMenu.popup();
 }
 
-let mediaRecorder;
-const recordedBits = []; // ability to record video in segments
-
 async function selectSource(source){
 	selectVideo.innerText = "Displaying: " + source.name;
 	const constraints = {
@@ -54,10 +65,10 @@ async function selectSource(source){
 	vid.play();
 
 	const options = {mimeType: 'video/webm; codecs=vp9'};
-	recorder = new MediaRecorder(stream, options);
+	mediaRecorder = new MediaRecorder(stream, options);
 
-	mediaRecorder.ondataavailable = handleDataAvailable;
-	mediaRecorder.onstop = handleStop;
+	mediaRecorder.ondataavailable = handleDataStart;
+	mediaRecorder.onstop = handleDataStop;
 }
 
 function handleDataStart(e){
@@ -72,15 +83,14 @@ async function handleDataStop(e) {
 	const storeInBuffer = Buffer.from(await recordedBlob.arrayBuffer());
 
 	const { saveFilePath } = await dialog.showSaveDialog({
-		buttonLabel: 'Save Video?',
-		defaultPath: `screc-${Date.now()}.webm`
+		buttonLabel: 'Save Video',
+		defaultPath: `~/screc-${Date.now()}.webm`
 	});
 
 	console.log("Saving video to ", saveFilePath);
 
-	writeFile(saveFilePath, storeInBuffer, () =>
-		console.log("Video Saved Successfully!")
-	);
+	if (saveFilePath != ""){
+		writeFile(saveFilePath, storeInBuffer, () =>	
+			console.log("Video Saved Successfully!"));
+	}
 }
-
-selectVideo.onclick = getVideo;
