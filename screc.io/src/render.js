@@ -72,7 +72,7 @@ async function selectSource(source){
 }
 
 function handleDataStart(e){
-	console.log("recording video!");
+	console.log("Saving video...");
 	recordedBits.push(e.data);
 }
 
@@ -80,17 +80,18 @@ async function handleDataStop(e) {
 	const recordedBlob = new Blob(recordedBits, {
 		type: 'video/webm; codecs=vp9'
 	});
+
 	const storeInBuffer = Buffer.from(await recordedBlob.arrayBuffer());
 
-	const { saveFilePath } = await dialog.showSaveDialog({
+	const { filePath } = await dialog.showSaveDialog({
 		buttonLabel: 'Save Video',
-		defaultPath: `~/screc-${Date.now()}.webm`
+		defaultPath: `screc-${Date.now()}.webm`
 	});
 
-	console.log("Saving video to ", saveFilePath);
+	console.log("Saving video to ", filePath);
 
-	if (saveFilePath != ""){
-		writeFile(saveFilePath, storeInBuffer, () =>	
+	if (filePath){
+		writeFile(filePath, storeInBuffer, () =>	
 			console.log("Video Saved Successfully!"));
 	}
 }
