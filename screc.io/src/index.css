@@ -28,6 +28,20 @@ body::-webkit-scrollbar-track {
 	letter-spacing: 0.4px;
 }
 
+#madeBy{
+	font-size: 14px;
+	margin-top: 3em;
+	margin-bottom: 1em;
+}
+
+#vidNotSelected{
+	max-width: 40em !important;
+}
+
+#profLink{
+	text-decoration: none !important;
+}
+
 video{
 	width : 80%;
 	height: auto;
@@ -35,34 +49,41 @@ video{
 	padding-right: 1rem;
 }
 
-#start{
-	background-color: #206a5d;
-	color: white;
+.start{
+	background-color: #206a5d !important;
+	color: white !important;
 }
 
-#start:hover{
-	background-color: #185247;
-	color: white;
+.start:hover{
+	background-color: #185247 !important;
+	color: white !important;
 }
-
-/* #start, #start:focus, #start.active:focus, #start:active:focus{
-	border: none !important;
-	outline:none !important;
-} */
 
 #stop{
 	margin-left: 0.8em;
 	color: white;
+	background-color: #b43232;
+}
+
+#stop:hover{
+	margin-left: 0.8em;
+	color: white;
+	background-color: #972a2a;
 }
 
 #selectVideo{
-	background-color: #A93343;
+	background-color: #432f61;
 	color: white;
 }
 	
 #selectVideo:hover{
-	background-color: #912d3b;
+	background-color: #34224e;
 	color: white;
+}
+
+.recording{
+	background-color: #6d2957 !important;
+	color: white !important;
 }
 
 .controls{

@@ -19,14 +19,16 @@
     <p id="description"> An Open-Source, Minimal, Easy-to-Use Screen Recording app compatible for all major operating systems including MacOS, Linux & Windows.</p><br>
 
     <div class="controls">
-      <video poster="source-not-selected-dark.png"></video><br>
+      <video poster="source-not-selected-dark.png" id="vidNotSelected">
+      </video>
+      
+      <br><br>
 
-      <hr>
-      <button id="start" class="btn">
+      <button id="start" class="btn start">
         Start
       </button>
 
-      <button id="stop" class="btn btn-dark">
+      <button id="stop" class="btn btn-dark stop">
         Stop
       </button>
 
@@ -36,8 +38,14 @@
         Choose Source
       </button>
 
+      <p id="madeBy">
+        made by 
+        <a id="profLink" href="https://github.com/akshitsarin" target="_blank">
+          akshit sarin
+        </a>
+      </p>
+
     </div>
-    <br>
   </body>
   
 </html> 

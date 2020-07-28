@@ -5,21 +5,24 @@ const { dialog, Menu } = remote;
 const { writeFile } = require('fs');
 // js document object model rules
 
-let mediaRecorder;
+let mediaRecorder = -1;
 const recordedBits = []; // ability to record video in segments
 const vid = document.querySelector('video');
 
 const start = document.getElementById('start');
 start.onclick = x => {
+	if (mediaRecorder == -1)	alert('Select a video source to record first!');
 	mediaRecorder.start();
-	start.classList.add('btn-danger');
+	start.classList.add('recording');
+	start.classList.remove('start');
 	start.innerText = "Recording";
 };
 
 const stop = document.getElementById("stop");
 stop.onclick = x => {
 	mediaRecorder.stop();
-	start.classList.remove('btn-danger');
+	start.classList.remove('recording');
+	start.classList.add('start');
 	start.innerText = "Start";
 };
 
@@ -95,3 +98,11 @@ async function handleDataStop(e) {
 			console.log("Video Saved Successfully!"));
 	}
 }
+
+let shell = require('electron').shell
+document.addEventListener('click', function (event) {
+	if (event.target.tagName === 'a' && event.target.href.startsWith('http')) {
+		event.preventDefault()
+		shell.openExternal(event.target.href)
+	}
+})
